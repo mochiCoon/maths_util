@@ -13,7 +13,7 @@ mostly made this to learn rust and have somewhere to put random math functions i
 * constants
 * more stuff eventually
 
-## example
+## example {This is unfinish as of right now!!!}
 
 ```rust
 use math_util::arithmetic::lerp;
