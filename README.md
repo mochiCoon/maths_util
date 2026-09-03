@@ -16,7 +16,7 @@ mostly made this to learn rust and have somewhere to put random math functions i
 ## example {This is unfinish as of right now!!!}
 
 ```rust
-use math_util::arithmetic::lerp;
+use math_util::interpolation::lerp;
 
 fn main() {
     let result = lerp(0.0, 10.0, 0.5);
