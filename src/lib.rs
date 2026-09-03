@@ -7,7 +7,7 @@ mod tests {
     use crate::arithmetic::{abs, clamp, cube, max, min, pow, sign, sqrt, square};
     use crate::geometry::{
         area_of_circle, area_of_quadrilateral, area_of_triangle, circumference_of_circle,
-        distance_2d, perimeter_of_quadrilateral,
+        distance_2d, distance_3d, perimeter_of_quadrilateral,
     };
 
     // ==================== GEOMETRY ====================
@@ -44,6 +44,11 @@ mod tests {
         let result = distance_2d(0.0, 0.0, 3.0, 4.0);
 
         assert!((result - 5.0).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_distance_3d() {
+        assert!(distance_3d(0.0, 0.0, 0.0, 3.0, 4.0, 12.0) == 13.0)
     }
 
     // ==================== ARITHMETIC ====================

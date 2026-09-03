@@ -27,3 +27,10 @@ pub fn distance_2d(x1: f32, y1: f32, x2: f32, y2: f32) -> f32 {
 
     sqrt(pow(dx, 2) + pow(dy, 2))
 }
+
+pub fn distance_3d(x1: f32, y1: f32, z1: f32, x2: f32, y2: f32, z2: f32) -> f32 {
+    let dx = x2 - x1;
+    let dy = y2 - y1;
+    let dz = z2 - z1;
+    sqrt(pow(dx, 2) + pow(dy, 2) + pow(dz, 2))
+}
