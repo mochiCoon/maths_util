@@ -1,6 +1,7 @@
 pub mod arithmetic;
 pub mod constants;
 pub mod geometry;
+pub mod interpolation;
 
 #[cfg(test)]
 mod tests {
@@ -9,6 +10,7 @@ mod tests {
         area_of_circle, area_of_quadrilateral, area_of_triangle, circumference_of_circle,
         distance_2d, distance_3d, perimeter_of_quadrilateral,
     };
+    use crate::interpolation::{inverse_lerp, lerp};
 
     // ==================== GEOMETRY ====================
 
@@ -124,5 +126,41 @@ mod tests {
     #[should_panic]
     fn test_sqrt_negative() {
         sqrt(-1.0);
+    }
+
+    // ==================== INTERPOLATION ====================
+
+    #[test]
+    fn test_lerp() {
+        assert_eq!(lerp(0.0, 10.0, 0.0), 0.0);
+        assert_eq!(lerp(0.0, 10.0, 0.5), 5.0);
+        assert_eq!(lerp(0.0, 10.0, 1.0), 10.0);
+    }
+
+    #[test]
+    fn test_inverse_lerp() {
+        assert_eq!(inverse_lerp(0.0, 10.0, 0.0), 0.0);
+        assert_eq!(inverse_lerp(0.0, 10.0, 5.0), 0.5);
+        assert_eq!(inverse_lerp(0.0, 10.0, 10.0), 1.0);
+    }
+
+    #[test]
+    fn test_lerp_negative_values() {
+        assert_eq!(lerp(-10.0, 10.0, 0.5), 0.0);
+    }
+
+    #[test]
+    fn test_inverse_lerp_negative_values() {
+        assert_eq!(inverse_lerp(-10.0, 10.0, 0.0), 0.5);
+    }
+
+    #[test]
+    fn test_lerp_outside_range() {
+        assert_eq!(lerp(0.0, 10.0, 2.0), 20.0);
+    }
+
+    #[test]
+    fn test_inverse_lerp_outside_range() {
+        assert_eq!(inverse_lerp(0.0, 10.0, 20.0), 2.0);
     }
 }
