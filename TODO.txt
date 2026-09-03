@@ -1,0 +1,57 @@
+CONSTANTS
+---------
+[*] PI
+[*] TAU
+[*] E
+[*] SQRT_2
+
+
+BASIC MATH
+----------
+[*] min()
+[*] max()
+[*] clamp()
+[*] abs()
+[*] sign()
+[*] square()
+[*] cube()
+[*] pow()
+[*] sqrt()
+
+
+GEOMETRY
+--------
+[*] area_of_circle()
+[*] circumference_of_circle()
+[*] area_of_rectangle()
+[*] perimeter_of_rectangle()
+[*] area_of_triangle()
+[*] distance_2d()
+[ ] distance_3d()
+
+
+INTERPOLATION
+-------------
+[ ] lerp()
+[ ] inverse_lerp()
+[ ] remap()
+[ ] smoothstep()
+[ ] smootherstep()
+[ ] move_towards()
+
+
+ANGLES
+------
+[ ] degrees_to_radians()
+[ ] radians_to_degrees()
+[ ] normalize_angle()
+[ ] delta_angle()
+
+
+STATISTICS
+----------
+[ ] sum()
+[ ] mean()
+[ ] median()
+[ ] min_value()
+[ ] max_value()
