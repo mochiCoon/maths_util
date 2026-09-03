@@ -10,7 +10,7 @@ mod tests {
         area_of_circle, area_of_quadrilateral, area_of_triangle, circumference_of_circle,
         distance_2d, distance_3d, perimeter_of_quadrilateral,
     };
-    use crate::interpolation::{inverse_lerp, lerp};
+    use crate::interpolation::{inverse_lerp, lerp, remap};
 
     // ==================== GEOMETRY ====================
 
@@ -162,5 +162,12 @@ mod tests {
     #[test]
     fn test_inverse_lerp_outside_range() {
         assert_eq!(inverse_lerp(0.0, 10.0, 20.0), 2.0);
+    }
+
+    #[test]
+    fn test_remap() {
+        assert!((remap(50.0, 0.0, 100.0, 0.0, 1.0) - 0.5).abs() < 0.0001);
+        assert!((remap(25.0, 0.0, 100.0, 0.0, 10.0) - 2.5).abs() < 0.0001);
+        assert!((remap(5.0, 0.0, 10.0, 100.0, 200.0) - 150.0).abs() < 0.0001);
     }
 }

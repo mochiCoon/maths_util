@@ -32,9 +32,9 @@ GEOMETRY
 
 INTERPOLATION
 -------------
-[ ] lerp()
-[ ] inverse_lerp()
-[ ] remap()
+[*] lerp()
+[*] inverse_lerp()
+[*] remap()
 [ ] smoothstep()
 [ ] smootherstep()
 [ ] move_towards()
