@@ -27,7 +27,7 @@ GEOMETRY
 [*] perimeter_of_rectangle()
 [*] area_of_triangle()
 [*] distance_2d()
-[ ] distance_3d()
+[*] distance_3d()
 
 
 INTERPOLATION
