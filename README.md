@@ -4,7 +4,7 @@ a small math utility library written in rust.
 
 mostly made this to learn rust and have somewhere to put random math functions i end up making.
 
-## what's in it
+## what's going in it
 
 * basic arithmetic
 * min / max / clamp
