@@ -13,6 +13,9 @@ pub fn remap(value: f32, in_min: f32, in_max: f32, out_min: f32, out_max: f32) -
 }
 
 pub fn smoothstep(in_min: f32, in_max: f32, value: f32) -> f32 {
+    if in_max == in_min {
+        panic!("in_max cannot be the same as in_min!!");
+    }
     //let x: f32 = max(0.0, min(1.0, (value-in_min)/(in_max-in_min)));
     let x = clamp((value-in_min)/(in_max-in_min), 0.0, 1.0);
     x*x*(3.0 - 2.0*x)
