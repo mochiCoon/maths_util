@@ -225,4 +225,10 @@ mod tests {
     fn test_smoothstep_negative_range() {
         assert!((smoothstep(-10.0, -5.0, -7.5) - 0.5).abs() < 0.0001);
     }
+
+    #[test]
+    #[should_panic]
+    fn test_smoothstep_panics_when_inmin_equals_inmax() {
+        smoothstep(10.0, 10.0, 12.0);
+    }
 }
