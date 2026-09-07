@@ -2,6 +2,7 @@ pub mod arithmetic;
 pub mod constants;
 pub mod geometry;
 pub mod interpolation;
+pub mod angles;
 
 #[cfg(test)]
 mod tests {
