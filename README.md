@@ -27,7 +27,7 @@ fn main() {
 
 ## why?
 
-i wanted to learn rust, so i decided making a little math library would be a good way to practice.
+i been working on learning rust, so i decided making a little math library would be a good way to practice.
 
 it's not meant to compete with anything, it's just a project i'm working on and adding to whenever i feel like it.
 
