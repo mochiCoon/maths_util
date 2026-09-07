@@ -10,7 +10,7 @@ mod tests {
         area_of_circle, area_of_quadrilateral, area_of_triangle, circumference_of_circle,
         distance_2d, distance_3d, perimeter_of_quadrilateral,
     };
-    use crate::interpolation::{inverse_lerp, lerp, remap, smoothstep};
+    use crate::interpolation::{inverse_lerp, lerp, remap, smoothstep, move_towards};
 
     // ==================== GEOMETRY ====================
 
@@ -230,5 +230,15 @@ mod tests {
     #[should_panic]
     fn test_smoothstep_panics_when_inmin_equals_inmax() {
         smoothstep(10.0, 10.0, 12.0);
+    }
+
+    #[test]
+    fn test_move_towards() {
+        assert_eq!(move_towards(0.0, 10.0, 3.0), 3.0);
+        assert_eq!(move_towards(3.0, 10.0, 3.0), 6.0);
+        assert_eq!(move_towards(8.0, 10.0, 3.0), 10.0);
+        assert_eq!(move_towards(10.0, 0.0, 3.0), 7.0);
+        assert_eq!(move_towards(2.0, 0.0, 3.0), 0.0);
+        assert_eq!(move_towards(5.0, 5.0, 3.0), 5.0);
     }
 }

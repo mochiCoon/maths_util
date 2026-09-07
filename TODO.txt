@@ -36,7 +36,7 @@ INTERPOLATION
 [*] inverse_lerp()
 [*] remap()
 [*] smoothstep()
-[ ] move_towards()
+[*] move_towards()
 
 
 ANGLES

@@ -20,3 +20,13 @@ pub fn smoothstep(in_min: f32, in_max: f32, value: f32) -> f32 {
     let x = clamp((value-in_min)/(in_max-in_min), 0.0, 1.0);
     x*x*(3.0 - 2.0*x)
 }
+
+pub fn move_towards(current: f32, target: f32, max_delta: f32) -> f32 {
+    let delta = target - current;
+
+    if delta.abs() <= max_delta {
+        target
+    } else {
+        current + delta.signum() * max_delta
+    }
+}
