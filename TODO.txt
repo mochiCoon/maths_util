@@ -35,7 +35,7 @@ INTERPOLATION
 [*] lerp()
 [*] inverse_lerp()
 [*] remap()
-[ ] smoothstep()
+[*] smoothstep()
 [ ] smootherstep()
 [ ] move_towards()
 
