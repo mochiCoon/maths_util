@@ -10,7 +10,7 @@ mod tests {
         area_of_circle, area_of_quadrilateral, area_of_triangle, circumference_of_circle,
         distance_2d, distance_3d, perimeter_of_quadrilateral,
     };
-    use crate::interpolation::{inverse_lerp, lerp, remap};
+    use crate::interpolation::{inverse_lerp, lerp, remap, smoothstep};
 
     // ==================== GEOMETRY ====================
 
@@ -169,5 +169,60 @@ mod tests {
         assert!((remap(50.0, 0.0, 100.0, 0.0, 1.0) - 0.5).abs() < 0.0001);
         assert!((remap(25.0, 0.0, 100.0, 0.0, 10.0) - 2.5).abs() < 0.0001);
         assert!((remap(5.0, 0.0, 10.0, 100.0, 200.0) - 150.0).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_at_in_min() {
+        assert!((smoothstep(0.0, 1.0, 0.0) - 0.0).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_at_in_max() {
+        assert!((smoothstep(0.0, 1.0, 1.0) - 1.0).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_at_midpoint() {
+        assert!((smoothstep(0.0, 1.0, 0.5) - 0.5).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_clamps_below_range() {
+        assert!((smoothstep(0.0, 1.0, -5.0) - 0.0).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_clamps_above_range() {
+        assert!((smoothstep(0.0, 1.0, 5.0) - 1.0).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_non_zero_based_range() {
+        assert!((smoothstep(10.0, 20.0, 15.0) - 0.5).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_quarter_point() {
+        assert!((smoothstep(0.0, 1.0, 0.25) - 0.15625).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_three_quarter_point() {
+        assert!((smoothstep(0.0, 1.0, 0.75) - 0.84375).abs() < 0.0001);
+    }
+
+    #[test]
+    fn test_smoothstep_monotonically_increasing() {
+        let mut prev = smoothstep(0.0, 10.0, 0.0);
+        for i in 1..=10 {
+            let val = smoothstep(0.0, 10.0, i as f32);
+            assert!(val >= prev, "smoothstep should be non-decreasing");
+            prev = val;
+        }
+    }
+
+    #[test]
+    fn test_smoothstep_negative_range() {
+        assert!((smoothstep(-10.0, -5.0, -7.5) - 0.5).abs() < 0.0001);
     }
 }
